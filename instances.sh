@@ -5,24 +5,29 @@
 cmd=${1:-"start"}
 n=${2:-3}
 
+starting_port=${3:-11110}
+
 echo "Command: $cmd"
 echo "# instances: $n"
+echo "Starting port: $starting_port"
 
 if [ $cmd = "start" ]
 then
     echo "Starting GMQL docker instances"
-    for (( i=1; i<=$n; i++ ))
+    for (( i=0; i<$n; i++ ))
     do
-        docker run -d -p 1111$i:80 --name gmql1111$i gmql_docker
+        cur_port=$(( $starting_port + i ))
+        docker run -d -p $cur_port:80 --name gmq$cur_port gmql_docker
     done
 fi
 
 if [ $cmd = "stop" ]
 then
     echo "Stopping GMQL docker instances"
-    for (( i=1; i<=$n; i++ )) 
+    for (( i=0; i<$n; i++ ))
     do
-        docker stop gmql1111$i
-        docker rm gmql1111$i
+        cur_port=$(( $starting_port + i ))
+        docker stop gmq$cur_port
+        docker rm gmq$cur_port
     done
 fi

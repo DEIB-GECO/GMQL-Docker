@@ -1,8 +1,8 @@
 #!/bin/bash
 
-BASEDIR=$(dirname "$0")
+BASEDIR=$(dirname $(realpath -s $0))
 
-module=$1
+module=${1:-"all"}
 
 do_gmql=false
 do_web=false
