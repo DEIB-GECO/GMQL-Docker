@@ -7,7 +7,7 @@ before_script:
   - sudo apt-get install curl
   - sudo apt-get install wget
   - sudo apt-get install grep
-  - sudo apt-get install awk
+  - sudo apt-get install gawk
   - sudo apt-get install sed
   - sudo apt-get install unzip
 script:
