@@ -1,6 +1,9 @@
 # GMQL-Docker
 Dockerizing GMQL
 
+[![Build Status](https://travis-ci.org/DEIB-GECO/GMQL-Docker.svg?branch=master)](https://travis-ci.org/DEIB-GECO/GMQL-Docker)
+[![DockerHub](https://images.microbadger.com/badges/version/gecopolimi/gmql.svg)](https://microbadger.com/images/gecopolimi/gmql "Get your own version badge on microbadger.com")
+
 Set of scripts to build, run and deploy the Docker image of GMQL
 
 ## Requirements
