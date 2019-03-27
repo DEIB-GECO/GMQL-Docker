@@ -11,7 +11,7 @@ get_latest_release() {
 	awk -F": " '{print $2}' | sed 's/"//g')
 
 	echo "Latest release URL: ${latest_release_url}"
-	wget -q --show-progress $latest_release_url
+	wget -q $latest_release_url
 
 	file_name=$(echo $latest_release_url | awk -F"/" '{print $NF}')
 	echo "File name is $file_name"
@@ -23,7 +23,7 @@ get_latest_release() {
 
 get_spark() {
 	echo "Downloading Spark"
-	wget -q --show-progress $spark_url
+	wget -q $spark_url
 
 	spark_file=$(echo $spark_url | awk -F"/" '{print $NF}')
 	tar xfs $spark_file
