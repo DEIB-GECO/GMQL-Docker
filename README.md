@@ -19,7 +19,14 @@ docker pull gecopolimi/gmql
 ## Running the docker image
 ```
 cd GMQL-Docker
-run_gmql_docker.sh <listening_port>
+
+run_gmql_docker.sh [-r|--conf-repository <arg>] [-e|--conf-executor <arg>] [-g|--gmql_repository <arg>] [-h|--help] [<port>]
+        <port>: port (default: '11110')
+        -r,--conf-repository: path to custom repository.xml (no default)
+        -e,--conf-executor: path to custom executor.xml (no default)
+        -g,--gmql_repository: path to custom repository location (no default)
+        -h,--help: Prints help
+
 ```
 where `<listening_port>` is the port on the local machine where the GMQL service is hosted
 
