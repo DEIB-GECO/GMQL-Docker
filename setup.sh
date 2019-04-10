@@ -3,7 +3,6 @@
 spark_url="https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz"
 gmql_docker_name="gmql"
 
-
 get_latest_release() {
 	echo "Downloading latest GMQL-WEB relase"
 	latest_release_url=$(curl --silent "https://api.github.com/repos/$1/releases/latest" | \
@@ -18,6 +17,8 @@ get_latest_release() {
 
 	unzip -qq $file_name
 	gmql_web_dir=$(echo "$file_name" | rev | cut -f 2- -d '.' | rev)
+    mv $gmql_web_dir gmql_web
+    gmql_web_dir="gmql_web"
 	rm $file_name
 }
 
@@ -37,7 +38,7 @@ set_configurations() {
 	echo "Setting the configurations"
 	# application.conf
 	echo "---- application.conf ----"
-	sed -i 's/databasePath = .*/databasePath = \/app\/gmql_repository/' ${gmql_web_dir}/conf/application.conf
+	sed -i 's/databasePath = .*/databasePath = \/app\/gmql_repository\/gmql.database/g' ${gmql_web_dir}/conf/application.conf
 	cat ${gmql_web_dir}/conf/application.conf
 
 	# executor.xml
@@ -73,9 +74,17 @@ push_docker() {
 }
 
 
+clean() {
+	echo "Cleaning"
+	rm -rf $gmql_web_dir
+	rm -rf $spark_dir
+}
+
+
 get_latest_release "DEIB-GECO/GMQL-WEB"
 get_spark
 set_configurations
 docker_login
 build_docker
 push_docker
+clean
