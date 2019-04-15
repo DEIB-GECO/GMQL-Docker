@@ -14,6 +14,6 @@
         <!-- Correct the following lines with the ones returned by the Name Server -->
 	<property name="GF_ENABLED">true</property>
 	<property name="GF_NAMESERVER_ADDRESS">http://genomic.deib.polimi.it/nameserver</property>
-	<property name="GF_INSTANCENAME">ISTANCE_NAME</property>
-	<property name="GF_TOKEN">ISTANCE_TOKEN</property>
+	<property name="GF_INSTANCENAME">INSTANCE_NAME</property>
+	<property name="GF_TOKEN">INSTANCE_TOKEN</property>
 </gmqlProperties>
