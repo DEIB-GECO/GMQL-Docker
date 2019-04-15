@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding="UTF-8" standalone="yes"?>
+<gmqlProperties xmlns="http://genomic.elet.polimi.it/entities">
+   	<property name="GMQL_LOCAL_HOME">/app/gmql_repository/</property>
+    	<property name="GMQL_DFS_HOME">/user/</property>
+   	<property name="GMQL_REPO_TYPE">LOCAL</property>
+    	<property name="HADOOP_HOME">/usr/local/hadoop/</property>
+    	<property name="HADOOP_CONF_DIR">/usr/local/hadoop/etc/hadoop/</property>
+
+    	<property name="DISK_QUOTA" user-category="GUEST">500000</property>
+    	<property name="DISK_QUOTA" user-category="BASIC">5000000</property>
+    	<property name="DISK_QUOTA" user-category="PRO">20000000</property>
+    	<property name="DISK_QUOTA" user-category="ADMIN">5000000000</property>
+
+        <!-- Correct the following lines with the ones returned by the Name Server -->
+	<property name="GF_ENABLED">true</property>
+	<property name="GF_NAMESERVER_ADDRESS">http://genomic.deib.polimi.it/nameserver</property>
+	<property name="GF_INSTANCENAME">ISTANCE_NAME</property>
+	<property name="GF_TOKEN">ISTANCE_TOKEN</property>
+</gmqlProperties>
