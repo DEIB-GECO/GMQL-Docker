@@ -11,21 +11,19 @@ Set of scripts to build, run and deploy the Docker image of GMQL
 - Unix-like operating system
 - This repository cloned: `git clone https://github.com/DEIB-GECO/GMQL-Docker.git`
 
-## Installing the docker image
-```
-docker pull gecopolimi/gmql
-```
 
-## Running the docker image
+
+## Running / updating the docker image
 ```
 cd GMQL-Docker
 
-run_gmql_docker.sh [-r|--conf-repository <arg>] [-e|--conf-executor <arg>] [-g|--gmql_repository <arg>] [-h|--help] [<port>]
-        <port>: port (default: '11110')
-        -r,--conf-repository: path to custom repository.xml (no default)
-        -e,--conf-executor: path to custom executor.xml (no default)
-        -g,--gmql_repository: path to custom repository location (no default)
-        -h,--help: Prints help
+./run_gmql_docker.sh [-r|--conf-repository <arg>] [-e|--conf-executor <arg>] [-g|--gmql_repository <arg>] [-h|--help] [<port>]
+	<port>: port (default: '11110')
+	-r,--conf-repository: path to custom repository.xml (no default)
+	-e,--conf-executor: path to custom executor.xml (no default)
+	-g,--gmql_repository: path to custom repository location (no default)
+	-u,--gmql_update: updates the docker image (do not update the docker image)
+	-h,--help: Prints help
 
 ```
 where `<listening_port>` is the port on the local machine where the GMQL service is hosted
