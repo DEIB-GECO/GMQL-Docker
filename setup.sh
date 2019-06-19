@@ -5,9 +5,21 @@ gmql_docker_name="gmql"
 
 get_latest_release() {
 	echo "Downloading latest GMQL-WEB relase"
-	latest_release_url=$(curl --silent "https://api.github.com/repos/$1/releases/latest" | \
-	grep '"browser_download_url"' | \
-	awk -F": " '{print $2}' | sed 's/"//g')
+	# latest_release_url=$(curl --silent "https://api.github.com/repos/$1/releases/latest" | \
+	# grep '"browser_download_url"' | \
+	# awk -F": " '{print $2}' | sed 's/"//g')
+
+    while true; do
+        latest_release_url=$(curl --silent "https://api.github.com/repos/DEIB-GECO/GMQL-WEB/releases/latest" | \
+            grep '"browser_download_url"' | \
+            awk -F": " '{print $2}' | sed 's/"//g' )
+        echo latest_release_url: $latest_release_url
+        # Use the below when you want the output not to contain some string
+        if [[ ! -z "$latest_release_url"  ]]; then
+            break
+        fi
+        sleep .5
+    done
 
 	echo "Latest release URL: ${latest_release_url}"
 	wget -q $latest_release_url
